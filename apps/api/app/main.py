@@ -1,13 +1,15 @@
 ﻿from fastapi import FastAPI
 
+from config import settings
+
 app = FastAPI(
-    title="AI Content OS",
-    version="0.1.0"
+    title=settings.app_name,
+    version=settings.app_version,
 )
 
 @app.get("/")
 def root():
-    return {"message": "AI Content OS API"}
+    return {"message": f"{settings.app_name} API"}
 
 @app.get("/health")
 def health():
